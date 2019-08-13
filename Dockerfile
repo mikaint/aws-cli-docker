@@ -1,8 +1,16 @@
 FROM alpine:3.10.1
 
-RUN apk add --update py-pip groff
+RUN apk add --update py-pip groff && \
+    pip install awscli --upgrade --user
 
-RUN pip install awscli --upgrade --user
+ARG AWS_ACCESS_KEY_ID
+ENV AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+
+ARG AWS_SECRET_ACCESS_KEY
+ENV AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+
+ARG AWS_DEFAULT_REGION
+ENV AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION}
 
 ENV PATH /root/.local/bin:$PATH
 
