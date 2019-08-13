@@ -1,0 +1,9 @@
+services:
+  - docker
+language: go
+jobs:
+  include:
+      script:
+        - "docker build -t mikaint/aws-cli ."
+        - "docker run mikaint/aws-cli"
+      stage: "docker-build-image"

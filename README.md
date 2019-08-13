@@ -1,1 +1,1 @@
-# AWS SDK (dockerized)
+# AWS CLI (dockerized)
